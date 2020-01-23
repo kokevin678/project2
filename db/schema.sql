@@ -1,0 +1,20 @@
+### Schema
+
+DROP DATABASE IF EXISTs monopolyDB;
+
+CREATE DATABASE monopolyDB;
+
+USE monopolyDB;
+
+CREATE TABLE player
+(
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    playerName VARCHAR(255) NOT NULL,
+    token VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE campaign
+(
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    
+)
