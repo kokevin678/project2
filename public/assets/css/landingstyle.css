@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #99FFBB;
+}
+
+#logo {
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    height: 20%;
+    border: solid 3px black;
+    text-align: center;
+}
+
+img {
+    filter: drop-shadow(30px 10px 4px #00BBAA);
+    padding: 0;
+    margin: 0;
+}
+
+.shape {
+    border: solid 3px blueviolet;
+}
+
+/* <!-- font-family: 'Righteous', cursive; -->
+<!-- font-family: 'Lato', sans-serif; --> */
+
+#gameNew {
+    border: solid 3px black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#newBtn {
+    border: solid 2px #FFFFFF;
+    border-radius: 9px;
+    background-color: #eb0000;
+    padding: 10px;
+    margin: 20px;
+    font-size: 16px;
+    color: #FFFFFF;
+    filter: drop-shadow(4px 4px 4px #00BBAA);
+    font-family: 'Righteous', cursive;
+}
+
+#gameList {
+    width: 80%;
+    border-radius: 9px;
+    box-shadow: inset 0 0 10px #000000;
+    padding: 20px;
+    border: solid 3px black;
+    text-align: center;
+}
