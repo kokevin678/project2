@@ -7,9 +7,33 @@ html{
 .navbar{
     background-color: #99ffbb;
 }
+.fa-subway{
+    font-size: 50px;
+    margin-left: 20px;
+}
 .header{
     color: white;
     background-color: #ff1a1a;
     padding: 6px;
     border: 3px solid black;
+    font-family: 'Capriola', sans-serif;
+}
+.jumbotron{
+    background-color:white;
+    padding-top: 2px;
+}
+.text-center{
+    font-size: 40px;
+    font-weight: bolder;
+    padding-bottom: 5px;
+    font-family: 'Baloo Bhaina', cursive;
+}
+.container{
+    background-image: url("http://www.saic.edu/150/sites/default/files/Monopoly.jpg");
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: repeat; /* Do not repeat the image */
+    background-size: cover;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
 }
