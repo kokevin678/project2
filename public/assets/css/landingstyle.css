@@ -80,10 +80,24 @@ body {
     padding: 20px;
 }
 
+#newGameIMG {
+    width: 40%;
+    margin: 0 auto;
+}
+
+p {
+    margin: 20px auto 0px;
+}
+
 input {
     width: 50%;
     display: inline-block;
     margin: 15px auto;
+}
+
+.token {
+    width: 50px;
+    margin-left: 5px;
 }
 
 #createGameBtn {
@@ -91,8 +105,10 @@ input {
     border-radius: 9px;
     background-color: #eb0000;
     padding: 10px;
-    margin: 30px 0 30px 0;
+    margin: 30px auto 30px;
     font-size: 16px;
     color: #FFFFFF;
     font-family: 'Righteous', cursive;
+    display: block;
+    
 }
