@@ -1,11 +1,20 @@
 module.exports = function(sequelize, DataTypes){
     var playerProperties = sequelize.define("playerProperties",{
-        playerID: DataTypes.INTEGER,
-        propertyID = DataTypes.INTEGER
+        numHouses:{
+            type: DataTypes.INTEGER,
+            defaultValue: 0,
+            min: 0,
+            max: 4
+        },
+        numHotels:{
+            type: DataTypes.BOOLEAN,
+            defaultValue: 0
+        }
     });
 
     playerProperties.associate = function(models){
-        playerProperties.belongsTo(models.Players);
-        playerProperties.hasMany(models.Properties);
+        models.playerProperties.belongsTo(models.Properties);
     };
+
+    return playerProperties;
 }

@@ -9,9 +9,9 @@ module.exports = function(sequelize, DataTypes){
 
     Game.associate = function(models){
         models.Game.hasMany(models.Players,{
-            onDelete: "cascade"
+            onDelete: "Cascade"
         });
-    };
+    }
 
     return Game;
 };

@@ -13,23 +13,15 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 1500
-        },
-        gameID: {
-            type: DataTypes.INTEGER,
-            allowNull: false
         }
     });
 
     Players.associate = function(models){
-        Players.belongsTo(models.Game,{
-            foreignKey: {
-                allowNull: false
-            }
-        });
-        Players.hasMany(models.playerProperties,{
+        
+        models.Players.hasMany(models.playerProperties,{
             onDelete: "cascade"
         });
-    };
+    }
 
     return Players;
 };

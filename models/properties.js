@@ -4,13 +4,11 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
         },
-        hexadecimal: {
+        hex: {
             type: DataTypes.STRING,
             allowNull: false
         }
     });
 
-    Properties.associate = function(models){
-        models.Properties.belongsToMany(models.playerProperties);
-    }
+    return Properties;
 }
