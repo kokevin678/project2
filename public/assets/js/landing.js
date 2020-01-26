@@ -22,13 +22,13 @@ $("#createGameBtn").on("click", function() {
     var ulEl = $("<ul>");
     var liEl = $("<li>");
 
-    var playerSetTitle= liEl.push(title);
-    var playerSetp1= liEl.push(p1);
-    var playerSetp2= liEl.push(p2);
-    var playerSetp3= liEl.push(p3);
-    var playerSetp4= liEl.push(p4);
+    var playerSetTitle = liEl.push(title);
+    var playerSetp1 = liEl.push(p1);
+    var playerSetp2 = liEl.push(p2);
+    var playerSetp3 = liEl.push(p3);
+    var playerSetp4 = liEl.push(p4);
 
-    var set = $(ulEl).append(playerSetTitle, playerSetp1, playerSetp2, playerSetp3, playerSetp4);
+    var set = $(ulEl).push(playerSetTitle, playerSetp1, playerSetp2, playerSetp3, playerSetp4);
     $("#gameList").append(set);
     console.log(set);
 
