@@ -66,7 +66,8 @@ module.exports = function(app){
     //used to create a new game
     app.post("/api/games",function(req,res){
         db.Game.create({
-            name: req.body.name
+            name: req.body.name,
+            numPlayers: req.body.numPlayers
         }).then(function(result){
             res.json(result);
         })
@@ -110,7 +111,8 @@ module.exports = function(app){
     app.put("/api/games/:id", function(req,res){
         db.Game.update(
             {
-                name: req.body.name
+                name: req.body.name,
+                numPlayers: req.body.numPlayers
             },
             {
                 where:{
