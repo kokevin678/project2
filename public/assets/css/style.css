@@ -64,6 +64,9 @@ img{
 h4{
     margin-top: 8px;
 }
+.col{
+    width: 30px;
+}
 .success{
     color:#000000;
     outline-color: #33cc33;
@@ -81,6 +84,8 @@ h4{
 }
 .card{
     margin-top: -30px;
+    margin-right: 0%;
+    width: 8rem;
     margin-right: 0%;
 }
 .card:hover{
