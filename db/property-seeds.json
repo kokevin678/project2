@@ -1,0 +1,139 @@
+[
+    {
+        "name":"Mediterranean Avenue",
+        "hex":"#4B0082"
+    },
+    {
+        "name":"Baltic Avenue",
+        "hex":"#4B0082"
+    }, 
+    {
+        "name":"Oriental Avenue",
+        "hex":"#87CEEB"
+        
+    }, 
+    {
+        "name":"Vermont Avenue",
+        "hex":"#87CEEB"
+        
+    },
+    {
+        "name":"Connecticut Avenue",
+        "hex":"#87CEEB"
+        
+    }, 
+    {
+        "name":"St. Charles Place",
+        "hex":"#9932CC"
+        
+    }, 
+    {
+        "name":"States Avenue",
+        "hex":"#9932CC"
+        
+    }, 
+    {
+        "name":"Virginia Avenue",
+        "hex":"#9932CC"
+        
+    },
+    {
+        "name":"St. James Place",
+        "hex":"#FFA500"
+        
+    },
+    { 
+        "name":"Tennessee Avenue",
+        "hex":"#FFA500"
+    },
+    {
+        "name":"New York Avenue", 
+        "hex":"#FFA500"
+        
+    },
+    {
+        "name":"Kentucky Avenue",
+        "hex":"#FF0000"
+        
+    },
+    {
+        "name":"Indiana Avenue",
+        "hex":"#FF0000"
+        
+    },
+    {
+        "name":"Illinois Avenue",
+        "hex":"#FF0000"
+        
+    },
+    {
+        "name":"Atlantic Avenue",
+        "hex":"#FFFF00"
+        
+    }, 
+    {
+        "name":"Ventnor Avenue",
+        "hex":"#FFFF00"
+        
+    },
+    { 
+        "name":"Marvin Gardens", 
+        "hex":"#FFFF00"
+        
+    },
+    {
+        "name":"Pacific Avenue", 
+        "hex":"#008000"
+        
+    }, 
+    {
+        "name":"North Carolina Avenue",
+        "hex":"#008000"
+        
+    },
+    {
+        "name":"Pennsylvania Avenue",
+        "hex":"#008000"
+        
+    },
+    {
+        "name":"Park Place",
+        "hex":"#0000FF"
+        
+    }, 
+    {
+        "name":"Boardwalk",
+        "hex":"#0000FF"
+        
+    },
+    {
+        "name":"Reading Railroad",
+        "hex":"#FFFFF0"
+        
+    }, 
+    {
+        "name":"Pennsylvania Railroad",
+        "hex":"#FFFFF0"
+        
+    }, 
+    {
+        "name":"B & O Railroad",
+        "hex":"#FFFFF0"
+        
+    }, 
+    {
+        "name":"Short Line",
+        "hex":"#FFFFF0"
+        
+    },
+    {
+        "name":"Electric Company",
+        "hex":"#FFFFFF"
+        
+    }, 
+    {
+        "name":"Water Works",
+        "hex":"#FFFFFF"
+        
+    }
+]
