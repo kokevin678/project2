@@ -141,6 +141,24 @@ module.exports = function(app){
         });
     });
 
+    app.put("/api/playerProperties/:id",function(req,res){
+        db.Players.update(
+            {
+                numHouses: req.body.numHouses,
+                numHotels: req.body.numHotels
+            },
+            {
+                where:{
+                    id: req.params.id
+                }
+            }
+        ).then(function(result){
+            res.json(result);
+        }).catch(function(error){
+            console.log(error);
+        });
+    })
+
 // ---------------------------------------------------------
 // -------------------- DELETE REQUESTS --------------------
 // ---------------------------------------------------------
