@@ -22,7 +22,7 @@ html{
     background-color:white;
     padding-top: 2px;
 }
-.text-center{
+.title{
     font-size: 40px;
     font-weight: bolder;
     padding-bottom: 5px;
@@ -30,11 +30,40 @@ html{
 }
 .container{
     background-image: url("http://www.saic.edu/150/sites/default/files/Monopoly.jpg");
-    height: 500px; /* You must set a specified height */
-    background-position: center; /* Center the image */
-    background-repeat: repeat; /* Do not repeat the image */
+    height: 500px; 
+    background-position: center;
+    background-repeat: repeat; 
     background-size: cover;
     opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
+    filter: alpha(opacity=50);
     font-weight: bolder;
+}
+.position{
+    color:black;
+    font-weight: bolder;
+    outline-color: #87CEEB;
+    border: 2px solid #87CEEB;
+}
+.position:hover{
+    background-color: #87CEEB;
+    color: white;
+    outline-color: #87CEEB;
+    border: 2px solid #87CEEB;
+}
+h4{
+    margin-top: 8px;
+}
+.success{
+    color:#000000;
+    outline-color: #33cc33;
+    border: 2px solid #33cc33;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+.success:hover{
+    background-color: #33cc33;
+    color: white;
+    outline-color: #33cc33;
+    border: 2px solid #33cc33;
+    font-family: 'Ubuntu', sans-serif;
 }
