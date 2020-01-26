@@ -81,6 +81,7 @@ h4{
 }
 .card{
     margin-top: -30px;
+    margin-right: 0%;
 }
 .card:hover{
     transform: translateY(-3rem)
@@ -88,4 +89,14 @@ h4{
 }
 .card-header{
     background: #008000
+}
+button{
+    background-color: transparent;
+    border: none;
+}
+.fa-plus{
+    font-size: 10px;
+}
+.fa-minus{
+    font-size: 10px;
 }
