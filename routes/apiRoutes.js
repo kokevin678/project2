@@ -81,6 +81,7 @@ module.exports = function(app){
             name: req.body.name,
             token: req.body.token,
             money: req.body.money,
+            position: req.body.position,
             GameId: req.body.GameId
         }).then(function(result){
             res.json(result);
@@ -127,7 +128,8 @@ module.exports = function(app){
     app.put("/api/players/:id", function(req,res){
         db.Players.update(
             {
-                money: req.body.money
+                money: req.body.money,
+                position: req.body.position
             },
             {
                 where:{

@@ -13,7 +13,10 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 1500
-        }
+        },
+        position: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "Go"
     });
 
     Players.associate = function(models){
