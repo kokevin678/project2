@@ -67,3 +67,14 @@ h4{
     border: 2px solid #33cc33;
     font-family: 'Ubuntu', sans-serif;
 }
+.card{
+    border: 3px solid black;
+    margin-top: -30px;
+}
+.card:hover{
+    transform: translateY(-3rem)
+
+}
+.card-header{
+    background: #008000
+}
