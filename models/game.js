@@ -4,6 +4,13 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false,
             len:[1]
+        },
+        numPlayers: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
+            min: 0,
+            max: 8
         }
     });
 
