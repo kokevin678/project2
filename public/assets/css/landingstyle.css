@@ -122,3 +122,11 @@ input:focus {
     display: block;
     filter: drop-shadow(4px 4px 4px #00BBAA);    
 }
+
+ul {
+    list-style-type: none;
+}
+
+.gameBlock {
+    border: solid 2px #FFFFFF;
+}
