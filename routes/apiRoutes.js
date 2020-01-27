@@ -146,10 +146,10 @@ module.exports = function(app){
     });
 
     app.put("/api/playerProperties/:id",function(req,res){
-        db.Players.update(
+        db.playerProperties.update(
             {
                 numHouses: req.body.numHouses,
-                numHotels: req.body.numHotels
+                Hotel: req.body.Hotel
             },
             {
                 where:{

@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes){
             min: 0,
             max: 4
         },
-        numHotels:{
+        Hotel:{
             type: DataTypes.BOOLEAN,
             defaultValue: 0
         }
