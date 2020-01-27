@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Yali",
+        "token": "Dog",
+        "GameId": 1
+    },
+    {
+        "name": "Angel",
+        "token": "Car",
+        "GameId": 1
+    },
+    {
+        "name": "William",
+        "token": "Boat",
+        "GameId": 1
+    },
+    {
+        "name": "Andres",
+        "token": "Cannon",
+        "GameId": 2
+    },
+    {
+        "name": "Michael",
+        "token": "T-Rex",
+        "GameId": 2
+    },
+    {
+        "name": "Kevin",
+        "token": "Car",
+        "GameId": 2
+    },
+    {
+        "name": "Rick",
+        "token": "Boat",
+        "GameId": 3
+    },
+    {
+        "name": "Morty",
+        "token": "Dog",
+        "GameId": 3
+    }
+]
