@@ -235,12 +235,34 @@ module.exports = function(app){
 
     //used to quickly populate players table
     app.post("/api/dev/players",function(req,res){
+        let tracker = {};
         for(let i = 0; i < req.body.length; i++){
+            if(tracker[req.body[i].GameId]){
+                tracker[req.body[i].GameId]++;
+            } else{
+                tracker[req.body[i].GameId] = 1;
+            }
             db.Players.create(req.body[i])
                 .catch(function(error){
                     console.log(error);
                 });
         }
+
+        //updates the number of players in each game
+        for(var key in tracker){
+            db.Game.update(
+                {
+                    numPlayers: tracker[key]
+                },
+                {
+                    where:{
+                        id: key
+                    }
+                }                
+            )
+        }
+
+        // console.log(tracker);
     });
 
     //used to quickly populate playerProperties table
