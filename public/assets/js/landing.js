@@ -7,7 +7,8 @@ $("#newBtn").on("click", function() {
     console.log('clicked');
 });
 
-$("#createGameBtn").on("click", function() {
+$("#createGameBtn").on("click", function(e) {
+    event.preventDefault();
     var title = $("#gameTitle").val();
     var p1 = $("#player1").val();
     var p2 = $("#player2").val();
@@ -22,15 +23,15 @@ $("#createGameBtn").on("click", function() {
     var ulEl = $("<ul>");
     var liEl = $("<li>");
 
-    var playerSetTitle = liEl.push(title);
-    var playerSetp1 = liEl.push(p1);
-    var playerSetp2 = liEl.push(p2);
-    var playerSetp3 = liEl.push(p3);
-    var playerSetp4 = liEl.push(p4);
+    var playerSetTitle = ulEl.html(liEl.text(title));
+    var playerSetp1 = liEl.text(p1);
+    var playerSetp2 = liEl.text(p2);
+    var playerSetp3 = liEl.text(p3);
+    var playerSetp4 = liEl.text(p4);
 
-    var set = $(ulEl).push(playerSetTitle, playerSetp1, playerSetp2, playerSetp3, playerSetp4);
-    $("#gameList").append(set);
-    console.log(set);
+    // var set = ulEl.append(playerSetTitle);
+    $("#gameList").append(playerSetTitle);
+    console.log(playerSetTitle);
 
 });
 
