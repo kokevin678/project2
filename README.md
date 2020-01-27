@@ -22,6 +22,7 @@ Monopoly, the simple finance board game that brings friends and family together 
 - CSS - Styles html elements on page
 - Bootstrap - CSS framework
 - Howler - Audio interaction
+- Youtube-dl - Download audio from YouTube
 - Git - Version control system to track changes to source code
 - GitHub - Hosts repository that can be deployed to GitHub Pages
 - HeroKu - Plateform to deploy app on cloud
