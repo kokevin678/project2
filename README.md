@@ -3,7 +3,13 @@
 
 
 ## Summary 
-
+Monopoly, the simple finance board game that brings friends and family together to bankrupt each other. Problem is the game last too long. With MONOPOLY Tracker game can simply be paused and resume at ease. MONOPOLY Tracker allow players to
+- create multiple games,
+- add players
+- log player location on the board when the game pause
+- log each player’s bought properties
+- number of houses and hotel on each property
+- and the current cash amount
 
 
 
@@ -14,13 +20,16 @@
 ## Technologies Used
 - HTML - Used to create elements on the DOM
 - CSS - Styles html elements on page
-- Bootstrap - 
-- Howler - 
+- Bootstrap - CSS framework
+- Howler - Audio interaction
 - Git - Version control system to track changes to source code
 - GitHub - Hosts repository that can be deployed to GitHub Pages
-- HeroKu - 
+- HeroKu - Plateform to deploy app on cloud
  
+## API Call
 
+
+## API response
 
 
 
