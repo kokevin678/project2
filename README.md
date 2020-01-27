@@ -28,6 +28,51 @@ Monopoly, the simple finance board game that brings friends and family together 
 - HeroKu - Plateform to deploy app on cloud
  
 ## API Call
+Querying the information from MySQL database to create new game
+```js
+    app.post("/api/games",function(req,res){
+        db.Game.create({
+            name: req.body.name,
+            numPlayers: req.body.numPlayers
+        }).then(function(result){
+            res.json(result);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+    });
+```
+
+Querying the information from mySQL database to create new player
+```js
+    app.post("/api/players",function(req,res){
+        db.Players.create({
+            name: req.body.name,
+            token: req.body.token,
+            money: req.body.money,
+            position: req.body.position,
+            GameId: req.body.GameId
+        }).then(function(result){
+            res.json(result);
+        }).catch(function(error){
+            console.log(error);
+        });
+    });
+```
+
+Querying the information from MySQL database to create new player properties
+```js
+    app.post("/api/playerProperties",function(req,res){
+        db.playerProperties.create({
+            PlayerId: req.body.PlayerId,
+            PropertyId: req.body.PropertyId
+        }).then(function(result){
+            res.json(result);
+        }).catch(function(error){
+            console.log(error);
+        });
+    })
+```
 
 
 ## API response
