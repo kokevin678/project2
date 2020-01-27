@@ -4,12 +4,12 @@
 
 ## Summary 
 Monopoly, the simple finance board game that brings friends and family together to bankrupt each other. Problem is the game last too long. With MONOPOLY Tracker game can simply be paused and resume at ease. MONOPOLY Tracker allow players to
-- create multiple games,
-- add players
-- log player location on the board when the game pause
-- log each player’s bought properties
-- number of houses and hotel on each property
-- and the current cash amount
+- Create multiple games,
+- Add players
+- Log player's location on the board when the game pause
+- Log each player’s bought properties
+- Store number of houses and hotel on each property
+- Save current cash amount player still have
 
 
 
@@ -27,7 +27,7 @@ Monopoly, the simple finance board game that brings friends and family together 
 - GitHub - Hosts repository that can be deployed to GitHub Pages
 - HeroKu - Plateform to deploy app on cloud
  
-## API Call
+## API Post Request
 Querying the information from MySQL database to create new game
 ```js
     app.post("/api/games",function(req,res){
@@ -43,7 +43,7 @@ Querying the information from MySQL database to create new game
     });
 ```
 
-Querying the information from mySQL database to create new player
+Querying the information from MySQL database to create new player
 ```js
     app.post("/api/players",function(req,res){
         db.Players.create({
@@ -75,7 +75,7 @@ Querying the information from MySQL database to create new player properties
 ```
 
 
-## API response
+## API GET Response
 
 
 
