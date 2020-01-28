@@ -50,6 +50,26 @@ body {
     font-family: 'Righteous', cursive;
 }
 
+.startBtn{
+    border: solid 2px #FFFFFF;
+    border-radius: 9px;
+    background-color: #eb0000;
+    padding: 10px;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: 'Righteous', cursive;
+}
+
+.deleteBtn{
+    border: solid 2px #FFFFFF;
+    border-radius: 9px;
+    background-color: #eb0000;
+    padding: 10px;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: 'Righteous', cursive;
+}
+
 #gameList {
     width: 50%;
     border-radius: 9px;

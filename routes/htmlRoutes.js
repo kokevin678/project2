@@ -6,7 +6,7 @@ module.exports = function(app, path) {
 
   //game route loads game.html
   app.get("/game", function(req, res) {
-    res.sendfile(path.join(__dirname, "../public"));
+    res.sendfile(path.join(__dirname, "../public/save.html"));
   });
 
   //player routeloads player.html
