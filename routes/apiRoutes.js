@@ -59,6 +59,22 @@ module.exports = function(app){
         });
     });
 
+    app.get("/api/playerProperties/property/:propertyId",function(req,res){
+        db.playerProperties.findAll({
+            where:{
+                id: req.params.propertyId
+            },
+            include:{
+                model:db.Properties,
+                attributes: ["name","hex"]
+            }
+        }).then(function(result){
+            res.json(result);
+        }).catch(function(error){
+            console.log(error);
+        });
+    });
+
 // -------------------------------------------------------
 // -------------------- POST REQUESTS --------------------
 // -------------------------------------------------------

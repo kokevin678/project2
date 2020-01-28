@@ -1,17 +1,22 @@
 [
     {
         "name": "Yali",
-        "token": "Dog",
+        "token": "dog",
         "GameId": 1
     },
     {
         "name": "Angel",
-        "token": "Car",
+        "token": "car",
         "GameId": 1
     },
     {
         "name": "William",
-        "token": "Boat",
+        "token": "boat",
+        "GameId": 1
+    },
+    {
+        "name": "Ricky",
+        "token": "tophat",
         "GameId": 1
     },
     {
