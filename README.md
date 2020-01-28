@@ -13,6 +13,7 @@ Monopoly, the simple finance board game that brings friends and family together 
 
 
 
+
 ## Site Demo
 ![Site](#)
 
@@ -76,6 +77,13 @@ Querying the information from MySQL database to create new player properties
 
 
 ## API response
+- Bootstrap - 
+- Howler - 
+- Git - Version control system to track changes to source code
+- GitHub - Hosts repository that can be deployed to GitHub Pages
+- HeroKu - 
+ 
+
 
 
 
