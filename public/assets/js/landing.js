@@ -69,8 +69,13 @@ $(document).ready(function() {
         }
     });
 
+    var sound = new Howl({
+        src: ['assets/Sounds/cash.mp4']
+    });
+
     $("#newBtn").on("click", function() {
         $(".bg-modal").css("display", "flex");
+        sound.play();
         console.log('clicked');
     });
 
