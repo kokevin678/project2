@@ -1,0 +1,84 @@
+[
+    {
+        "PropertyId": 5,
+        "PlayerId": 1
+    },
+    {
+        "PropertyId": 17,
+        "PlayerId": 1
+    },
+    {
+        "PropertyId": 11,
+        "PlayerId": 1
+    },
+    {
+        "PropertyId": 27,
+        "PlayerId": 2
+    },
+    {
+        "PropertyId": 1,
+        "PlayerId": 2
+    },
+    {
+        "PropertyId": 4,
+        "PlayerId": 3
+    },
+    {
+
+        "PropertyId": 28,
+        "PlayerId": 4
+    },
+    {
+        "PropertyId": 8,
+        "PlayerId": 4
+    },
+    {
+        "PropertyId": 9,
+        "PlayerId": 4
+    },
+    {
+        "PropertyId": 12,
+        "PlayerId": 5
+    },
+    {
+        "PropertyId": 13,
+        "PlayerId": 5
+    },
+    {
+        "PropertyId": 21,
+        "PlayerId": 6
+    },
+    {
+        "PropertyId": 22,
+        "PlayerId": 6
+    },
+    {
+        "PropertyId": 23,
+        "PlayerId": 6
+    },
+    {
+        "PropertyId": 1,
+        "PlayerId": 7
+    },
+    {
+
+        "PropertyId": 2,
+        "PlayerId": 7
+    },
+    {
+        "PropertyId": 3,
+        "PlayerId": 7
+    },
+    {
+        "PropertyId": 15,
+        "PlayerId": 8
+    },
+    {
+        "PropertyId": 16,
+        "PlayerId": 8
+    },
+    {
+        "PropertyId": 17,
+        "PlayerId": 8
+    }   
+]
