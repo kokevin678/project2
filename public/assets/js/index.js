@@ -1,6 +1,22 @@
 
 
 $(function(){
+    //set the sound for the house sound
+
+  console.log("Im here before it loads")
+  
+  var dltBtn = $(".removeHouse")
+  var removeStreet = $(".close")
+  
+  
+  dltBtn.on("click",(event)=>{
+      event.preventDefault();
+      var id = $(this).data("housing");
+      var cardBody = $(`#${id}`);
+  
+      cardBody.remove("i")
+      console.log("removed house")
+  })
     $.ajax({
         type:"GET",
         url:"/api/players/1"
@@ -26,6 +42,7 @@ $(function(){
             var divTwo = $("<div>")
             divTwo.addClass("col success");
             divTwo.html(`<h4> $ ${data[i].money}</h4>`)
+            console.log(data[i].name)
 
          //adds the position of the player
          var divThree = $("<div>");
@@ -37,14 +54,15 @@ $(function(){
                 type:"GET",
                 url:`/api/playerProperties/+${playerId}`
             }).then(function(result){
+                console.log(result)
+                savCol = $("<col>");
+                savCol.css("padding-left","6px");
                 var xIcon;
                 var plusIcon;
                 var lessIcon;
+                var savCol;
                 for(var i = 0; i < result.length;i++){
-                console.log(result[i].Property)
-                //creating the col that will hold that player card
-                var savCol = $("<col>");
-                savCol.css("padding-left","6px");
+            
                 //creating the cards that will hold the info 
                 cardDiv =$("<div>")
                 cardDiv.addClass("card")
@@ -64,11 +82,12 @@ $(function(){
                 cardBody.addClass("card-body")
                 cardBody.attr("id",[i])
                 var houseAddBtn = $("<button type='button'>")
-                houseAddBtn.addClass("addHouse float-right")
-                houseAddBtn.data("housing",[i])
+                houseAddBtn.addClass("addHouse")
+                houseAddBtn.addClass("float-right")
+                houseAddBtn.attr("data-housing",[i])
                 var plusIcon = (` <span aria-hidden="true"><i class="fas fa-plus"></i></span>`)
                 houseAddBtn.append(plusIcon)
-                //setting up the less button s
+                //setting up the less button 
                 var houseLessBtn = $("<button type='button'>")
                 houseLessBtn.addClass("removeHouse float-right")
                 var lessIcon = (`<span aria-hidden="true"><i class="fas fa-minus"></i></span>`);
@@ -81,22 +100,43 @@ $(function(){
                 cardHeaderDiv.append(closeBtn)
                 cardDiv.append(cardHeaderDiv)
                 cardDiv.append(cardBody)
+                // savCol = $("<col>");
+                // savCol.css("padding-left","6px");
                 savCol.append(cardDiv)
                 street.append(savCol)
+
                 }
+
+                //button listeners should be render here
+                var sound = new Howl({
+                    src: ['assets/Sounds/hammer.mp4'],
+                    volume:0.4
+                     });
+                     
+                     $(".addHouse").click(function(event){
+                    event.preventDefault()
+                        //console.log($(this).data("housing"))
+                        //console.log($(".card-body").find("#one"))
+                
+                        var id = $(this).data("housing");
+                        var cardBody = $(`#${id}`);
+                        console.log(id)
+                        cardBody.prepend(`<i class="fas fa-home"></i>`)
+                        sound.play()
+                    
+                    
+                    
+                })
+                
+
             })
          //appending to file
             chart.append(div)
             money.append(divTwo)
             place.append(divThree)
-            //street.append(savCol)
+            
         }
-        // $.ajax({
-        //     type:"GET",
-        //     url:`/api/playerProperties/1`
-        // }).then(function(result){
-        //     console.log(result[0].Property)
-        // })
+        
     })
 })
 
@@ -108,45 +148,8 @@ $(function(){
 
 
 
-var sound = new Howl({
-  src: ['assets/Sounds/hammer.mp4'],
-  volume:0.4
-   });
-   
-console.log("Im here before it loads")
 
+// remove.on("click",(event)=>{
+//     event.preventDefault()
 
-var addBtn = $(".addHouse")
-var dltBtn = $(".removeHouse")
-var removeStreet = $(".close")
-
-addBtn.on("click",function(event){
-    event.preventDefault()
-    console.log($(this).data("housing"))
-    console.log($(".card-body").find("#one"))
-
-    var id = $(this).data("housing");
-    var cardBody = $(`#${id}`);
-
-    cardBody.prepend(`<i class="fas fa-home"></i>`)
-    console.log("Added house")
-   // sound.play()
-    
-    
-    
-})
-
-
-dltBtn.on("click",(event)=>{
-    event.preventDefault();
-    var id = $(this).data("housing");
-    var cardBody = $(`#${id}`);
-
-    cardBody.remove("i")
-    console.log("removed house")
-})
-
-remove.on("click",(event)=>{
-    event.preventDefault()
-
-})
+// })
