@@ -3,8 +3,16 @@
     padding: 0;
 }
 
+html { 
+    background: url(../img/mono-board.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 body {
-    background-color: #99FFBB;
+    background-color: transparent;
 }
 
 .container {
@@ -121,4 +129,12 @@ input:focus {
     font-family: 'Righteous', cursive;
     display: block;
     filter: drop-shadow(4px 4px 4px #00BBAA);    
+}
+
+ul {
+    list-style-type: none;
+}
+
+.gameBlock {
+    border: solid 2px #FFFFFF;
 }

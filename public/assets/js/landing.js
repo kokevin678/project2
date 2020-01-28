@@ -9,29 +9,25 @@ $("#newBtn").on("click", function() {
 
 $("#createGameBtn").on("click", function(e) {
     event.preventDefault();
+    $(".bg-modal").css("display", "none");
     var title = $("#gameTitle").val();
     var p1 = $("#player1").val();
     var p2 = $("#player2").val();
     var p3 = $("#player3").val();
     var p4 = $("#player4").val();
-    console.log(title)
-    console.log(p1)
-    console.log(p2)
-    console.log(p3)
-    console.log(p4)
 
+    var newDiv = $("<div>").addClass("gameBlock");
     var ulEl = $("<ul>");
-    var liEl = $("<li>");
 
-    var playerSetTitle = ulEl.html(liEl.text(title));
-    var playerSetp1 = liEl.text(p1);
-    var playerSetp2 = liEl.text(p2);
-    var playerSetp3 = liEl.text(p3);
-    var playerSetp4 = liEl.text(p4);
+    ulEl.append($("<li>").text(title));
+    ulEl.append($("<li>").text(p1));
+    ulEl.append($("<li>").text(p2));
+    ulEl.append($("<li>").text(p3));
+    ulEl.append($("<li>").text(p4));
 
-    // var set = ulEl.append(playerSetTitle);
-    $("#gameList").append(playerSetTitle);
-    console.log(playerSetTitle);
+    newDiv.html(ulEl);
+    $("#gameList").append(newDiv);
+    console.log(ulEl);
 
 });
 
