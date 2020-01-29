@@ -101,37 +101,39 @@ $(document).ready(function() {
             var playerArray = [
                 {
                     name: p1,
-                    token: "Dog",
+                    token: "assets/img/mono_token_doggo.png",
                     GameId: result.id
                 },
                 {
                     name: p2,
-                    token: "Hat",
+                    token: "assets/img/mono_token_tophat.png",
                     GameId: result.id
                 },
                 {
                     name: p3,
-                    token: "Car",
+                    token: "assets/img/mono_token_car.png",
                     GameId: result.id
                 },
                 {
                     name: p4,
-                    token: "Ship",
+                    token: "assets/img/mono_token_battleship.png",
                     GameId: result.id
                 },
             ];
 
             for(let i = 0; i < playerArray.length; i++){
-                $.ajax({
-                    url: "/api/players",
-                    type: "POST",
-                    data: playerArray[i]
-                }).then(function(result){
-                    console.log(result);
-                    if(i === playerArray.length - 1){
-                        renderGameList();
-                    }
-                });
+                if(playerArray[i].name !== ""){
+                    $.ajax({
+                        url: "/api/players",
+                        type: "POST",
+                        data: playerArray[i]
+                    }).then(function(result){
+                        console.log(result);
+                        if(i === playerArray.length - 1){
+                            renderGameList();
+                        }
+                    });
+                }
             }
         });
 
