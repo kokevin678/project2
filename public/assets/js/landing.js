@@ -11,44 +11,52 @@ $(document).ready(function() {
             type: "GET"
         }).then(function(gameData){
             console.log(gameData);
-            for(let i = 0; i < gameData.length; i++){
-                $.ajax({
-                    url: `/api/players/${gameData[i].id}`,
-                    type: "GET"
-                }).then(function(playerData){
-                    console.log(playerData);
-                    var gameBlock = $("<div>").addClass("gameBlock");
-
-                    var gameName = $("<h1>");
-                    gameName.text(gameData[i].name);
-
-                    var ul = $("<ul>");
-
-                    var startButton = $("<a>");
-                    startButton.addClass("startBtn btn");
-                    startButton.attr('data-gameid',`${gameData[i].id}`);
-                    startButton.attr('href', "/game");
-                    startButton.text("Start");
-
-                    var deleteButton = $("<button>");
-                    deleteButton.addClass("deleteBtn ml-3");
-                    deleteButton.attr('data-gameid', `${gameData[i].id}`);
-                    deleteButton.text("Delete");
-
-                    for(let j = 0; j < playerData.length; j++){
-                        var li = $("<li>");
-                        li.text(playerData[j].name);
-                        ul.append(li);
-                    }
-    
-                    gameBlock.append(gameName);
-                    gameBlock.append(ul);
-                    gameBlock.append(startButton);
-                    gameBlock.append(deleteButton);
-                    gameList.append(gameBlock);
-                });
-            }
+            renderGameData(gameData, gameData.length, 0);
         });
+    }
+
+    function renderGameData(gameData, numGames, index){
+        if(index < numGames){
+            $.ajax({
+                url: `/api/players/${gameData[index].id}`,
+                type: "GET"
+            }).then(function(playerData){
+                console.log(playerData);
+                var gameBlock = $("<div>").addClass("gameBlock");
+
+                var gameName = $("<h1>");
+                gameName.text(gameData[index].name);
+
+                var ul = $("<ul>");
+
+                var startButton = $("<a>");
+                startButton.addClass("startBtn btn");
+                startButton.attr('data-gameid',`${gameData[index].id}`);
+                startButton.attr('href', "/game");
+                startButton.text("Start");
+
+                var deleteButton = $("<button>");
+                deleteButton.addClass("deleteBtn ml-3");
+                deleteButton.attr('data-gameid', `${gameData[index].id}`);
+                deleteButton.text("Delete");
+
+                for(let j = 0; j < playerData.length; j++){
+                    var li = $("<li>");
+                    var h3 = $("<h3>");
+                    h3.css("color","#eb0000");
+                    h3.text(playerData[j].name);
+                    li.append(h3);
+                    ul.append(li);
+                }
+
+                gameBlock.append(gameName);
+                gameBlock.append(ul);
+                gameBlock.append(startButton);
+                gameBlock.append(deleteButton);
+                gameList.append(gameBlock);
+                renderGameData(gameData,numGames,index+1);
+            });
+        }
     }
 
     gameList.on("click", ".startBtn",function(event){
@@ -87,9 +95,23 @@ $(document).ready(function() {
         var p2 = $("#player2").val();
         var p3 = $("#player3").val();
         var p4 = $("#player4").val();
+        var p5 = $("#player5").val();
+        var p6 = $("#player6").val();
+        var p7 = $("#player7").val();
+        var p8 = $("#player8").val();
 
-        var newGame = {
-            name: title
+        if(title !== ""){
+            var newGame = {
+                name: title
+            }
+        } else {
+            alert("You must enter a game name.");
+            return;
+        }
+
+        if(p1 === "" && p2 === "" && p3 === "" && p4 === "" && p5 === "" && p6 === "" && p7 === "" && p8 === ""){
+            alert("You must enter at least one player.");
+            return;
         }
 
         $.ajax({
@@ -119,9 +141,30 @@ $(document).ready(function() {
                     token: "assets/img/mono_token_battleship.png",
                     GameId: result.id
                 },
+                {
+                    name: p5,
+                    token: "assets/img/mono_token_boot.png",
+                    GameId: result.id
+                },
+                {
+                    name: p6,
+                    token: "assets/img/mono_token_iron.png",
+                    GameId: result.id
+                },
+                {
+                    name: p7,
+                    token: "assets/img/mono_token_thimble.png",
+                    GameId: result.id
+                },
+                {
+                    name: p8,
+                    token: "assets/img/mono_token_wheelbarrow.png",
+                    GameId: result.id
+                }
             ];
 
             for(let i = 0; i < playerArray.length; i++){
+
                 if(playerArray[i].name !== ""){
                     $.ajax({
                         url: "/api/players",
@@ -129,10 +172,10 @@ $(document).ready(function() {
                         data: playerArray[i]
                     }).then(function(result){
                         console.log(result);
-                        if(i === playerArray.length - 1){
-                            renderGameList();
-                        }
                     });
+                }
+                if(i === playerArray.length - 1){
+                    location.reload();
                 }
             }
         });
