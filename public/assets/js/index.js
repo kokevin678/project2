@@ -147,32 +147,24 @@ function callingHouse() {
 }
 
 ///////TEST/////////
-$("#money").append(<`form class="form-inline">
-<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>`)
 
-
-
-
-
-
-
-
-// remove.on("click",(event)=>{
-//     event.preventDefault()
-
-// })
 function renderPlayerData(playerArray, numPlayers, index) {
     if (index < numPlayers) {
         var chart = $(".jumbotron").find("#name");
         var money = $(".jumbotron").find($("#money"));
         var place = $(".jumbotron").find($("#place"));
         var street = $(".jumbotron").find($("#streets"));
+        var token = $(".jumbotron").find($("#token"));
+        var update = $(".jumbotron").find($("#change"));
         var playerId = playerArray[index].id;
         var div = $("<div>");
         div.addClass("col");
         div.html(`<h5>${playerArray[index].name}</h5>`);
+        //adds player's token
+        var tokenDiv = $("<div>");
+        tokenDiv.addClass("col");
+        tokenDiv.html(`<img src='${playerArray[index].token}'>`)
+        //adds player's money
         var divTwo = $("<div>");
         divTwo.addClass("col success");
         divTwo.html(`<h4> $ ${playerArray[index].money}</h4>`);
@@ -180,10 +172,20 @@ function renderPlayerData(playerArray, numPlayers, index) {
         var divThree = $("<div>");
         divThree.addClass("col position");
         divThree.html(`<h4>${playerArray[index].position}</h4>`);
+        //adds an update button to each player with a unqie data-attribute
+        var divFour = $("<div>")
+        divFour.addClass("col text-center")
+        var updateBtn = $("<button type='button'>")
+        updateBtn.addClass("update btn-block btn-lg btn-info")
+        updateBtn.attr("data-playerId",playerId)
+        updateBtn.text("Update");
+        divFour.append(updateBtn);
         //appending to file
         chart.append(div);
+        token.append(tokenDiv);
         money.append(divTwo);
         place.append(divThree);
+        update.append(divFour);
         //setting up another ajax call to get the player property card
         $.ajax({
             type: "GET",
@@ -267,4 +269,4 @@ $("#streets").on("click", ".close", function(event){
 
 
 
-
+/// /api/playerProperties/:id will get the palyerproperties and playerinfo /api/players/:id
