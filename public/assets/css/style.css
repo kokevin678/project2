@@ -10,10 +10,7 @@ body{
 .navbar{
     background-color: #99ffbb;
 }
-.fa-subway{
-    font-size: 50px;
-    margin-left: 20px;
-}
+
 .header{
     color: white;
     background-color: #ff1a1a;
@@ -55,6 +52,12 @@ img{
     padding-bottom: 0px; 
     margin-bottom: 30px;
     margin-right: 5px;
+}
+.fa-hotel{
+    color: #ff1a1a;
+}
+.fa-home{
+    color: #008000;
 }
 .position:hover{
     background-color: #87CEEB;
@@ -109,4 +112,8 @@ button{
 }
 .fa-minus{
     font-size: 10px;
+}
+
+.update{
+    background: #60d9eb
 }
