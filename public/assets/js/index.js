@@ -13,7 +13,7 @@ $(function(){
   
     $.ajax({
         type:"GET",
-        url:"/api/players/1"
+        url:`/api/players/${GameId}`
     }).then(function(data){
         renderPlayerData(data,data.length,0);
 
