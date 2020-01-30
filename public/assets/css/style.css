@@ -1,10 +1,10 @@
 html{
     height: 100%;
-    background-color: #99ffbb;
 
 }
 body{
     min-height:100%;
+    padding-bottom: 20px;
 }
 
 .navbar{
@@ -87,7 +87,7 @@ h4{
 .card{
     margin-top: -30px;
     margin-right: 0%;
-    width: 17.2rem;
+    width: 100%;
     margin-right: 0%;
 }
 .card:hover{
@@ -169,4 +169,12 @@ p {
     font-family: 'Righteous', cursive;
     display: block;
     filter: drop-shadow(4px 4px 4px #00BBAA);    
+}
+
+.fa-hotel{
+    color: #ff1a1a;
+}
+
+.fa-home{
+    color: #008000;
 }

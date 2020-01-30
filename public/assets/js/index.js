@@ -15,7 +15,7 @@ $(function () {
         renderTokenOptions(data);
     });
 })
-$("#streets").on("click", ".addHouse", function (event) {
+$(document).on("click", ".addHouse", function (event) {
     event.preventDefault()
     var id = $(this).data("housing");
     var holder = $(`#${id}`);
@@ -65,14 +65,14 @@ $("#streets").on("click", ".addHouse", function (event) {
                 var houseIcon = $("<i>");
                 houseIcon.addClass("fas fa-home");
                 holder.append(houseIcon);
-                //sound.play()
+                sound.play();
                }
             }
            })
        })
     })
 })
-$("#streets").on("click", ".removeHouse",function(event){
+$(document).on("click", ".removeHouse",function(event){
     event.preventDefault();
     var id = $(this).data("housing");
     var houseDiv = $(`#${id}`);
@@ -132,7 +132,7 @@ $("#addPlayer").on("click", function() {
 
 });
 
-$("#streets").on("click", ".close", function(event){
+$(document).on("click", ".close", function(event){
     event.preventDefault();
     var id = $(this).data("housing");
     $.ajax({
@@ -144,15 +144,19 @@ $("#streets").on("click", ".close", function(event){
     
 });
 
-$("#name").on("click", ".deletePlayer", function(event){
+$(document).on("click", ".deletePlayer", function(event){
     event.preventDefault();
-    var playerId = $(this).data("playerid");
-    $.ajax({
-        type: "DELETE",
-        url: `/api/players/${playerId}`
-    }).then(function(){
-        location.reload();
-    });
+
+    var wantDelete = confirm("Delete this player?");
+    if(wantDelete){
+        var playerId = $(this).data("playerid");
+        $.ajax({
+            type: "DELETE",
+            url: `/api/players/${playerId}`
+        }).then(function(){
+            location.reload();
+        });
+    }
 });
 
 $("#addPlayerForm").on("submit", function(event){
@@ -184,38 +188,43 @@ $("#addPlayerForm").on("submit", function(event){
 });
 
 
-function callingHouse() {
-    $("#streets").on("click", ".addHouse", function () {
-        var sound = new Howl({
-            src: ['assets/Sounds/hammer.mp4'],
-            volume: 0.4
-        });
-        console.log($(this))
-        //  $.ajax({
-        //     type:"GET",
-        //     url:`/api/playerProperties/+${playerId}`
-        //  }).then(function(res){
-        //      console.log(playerId)
-        //      console.log(res)
-        //  })
-        $(".addHouse").click(function (event) {
-            event.preventDefault()
-
-            var id = $(this).data("housing");
-            var cardBody = $(`#${id}`);
-            cardBody.prepend(`<i class="fas fa-home"></i>`)
-            //sound.play()
-
-
-        })
+$(document).on("submit",".UpdatePlayerInfo",function(event){
+    event.preventDefault()
+    var player = $(this).data("player")
+    var moneyUpd = $("#money"+player).val().trim()
+    var positonUpd = $("#position"+player).val().trim()
+    
+    var playerUpdt = {
+        money: moneyUpd,
+        position: positonUpd
+    }
+    $.ajax({
+        type: "PUT",
+        url:`/api/players/${player}`,
+        data: playerUpdt
+    }).then(function(){
+        location.reload()
     })
-}
+})
 
+$(document).on("submit",".addProperty",function(event){
+    event.preventDefault();
+    var playerid = $(this).data("playerid");
+    var property = $(`#pp${playerid}`);
 
+    var propertyObj = {
+        PlayerId: playerid,
+        PropertyId: property.val()
+    }
 
-
-
-
+    $.ajax({
+        type: "POST",
+        url: "/api/playerProperties",
+        data: propertyObj
+    }).then(function(){
+        location.reload();
+    });
+});
 
 
 // remove.on("click",(event)=>{
@@ -223,17 +232,16 @@ function callingHouse() {
 
 // })
 function renderPlayerData(playerArray, numPlayers, index) {
+    var playerInfo = $("#playerInfo");
     if (index < numPlayers) {
-        var chart = $(".jumbotron").find("#name");
-        var money = $(".jumbotron").find($("#money"));
-        var place = $(".jumbotron").find($("#place"));
-        var street = $(".jumbotron").find($("#streets"));
-        var token = $(".jumbotron").find($("#token"));
+        var playerColumn = $("<div>");
+        playerColumn.addClass("col-12 col-lg-3 mt-3 mt-lg-0 text-center")
+
         var playerId = playerArray[index].id;
-        var div = $("<div>");
-        div.addClass("col");
-        div.html(
-            `<h5>
+        var name = $("<div>");
+        name.addClass("row");
+        name.html(
+            `<h5 class='mx-auto'>
                 ${playerArray[index].name}
                 <button class="btn btn-danger ml-2 deletePlayer" data-playerid=${playerArray[index].id}>
                     <i class="fas fa-user-times"></i>
@@ -242,28 +250,66 @@ function renderPlayerData(playerArray, numPlayers, index) {
         );
         //adds player's token
         var tokenDiv = $("<div>");
-        tokenDiv.addClass("col");
-        tokenDiv.html(`<img src='${playerArray[index].token}'>`)
+        tokenDiv.addClass("row");
+        tokenDiv.html(`<img class="mx-auto mb-3"src='${playerArray[index].token}'>`)
         //adds player's money
-        var divTwo = $("<div>");
-        divTwo.addClass("col success");
-        divTwo.html(`<h4> $ ${playerArray[index].money}</h4>`);
+        var rowTotakePlayerInfo = $("<div>")
+        rowTotakePlayerInfo.addClass("row")
+        var colToTakePlayerInfo = $("<div>");
+        colToTakePlayerInfo.addClass("col-12");
+        var formTotakePlayerInfo = $("<form>")
+        formTotakePlayerInfo.attr("data-player",playerId);
+        formTotakePlayerInfo.addClass("UpdatePlayerInfo text-center col")
+        var playerInfoBtn = $('<button type="submit" class="btn-lg btn-secondary">Update</button>')
+        playerInfoBtn.attr("playerId",playerId)
+        var divTwo = $("<textarea>");
+        divTwo.attr("rows","1")
+        divTwo.attr("id","money"+playerId);
+        divTwo.addClass(" success form-group");
+        divTwo.attr("placeholder",`$${playerArray[index].money}`)
         //adds the position of the player
-        var divThree = $("<div>");
-        divThree.addClass("col position");
-        divThree.html(`<h4>${playerArray[index].position}</h4>`);
+        var divThree = $("<textarea>");
+        divThree.attr("rows","1")
+        divThree.attr("id","position"+playerId)
+        divThree.addClass(" position form-group");
+        divThree.text(`${playerArray[index].position}`);
+        //setting the update properties
+        var form = $("<form>")
+        form.addClass("text-center form-inline mt-3 mb-5 addProperty")
+        form.attr("data-playerid",playerId)
+        //making the third selector group to hold the updated
+        var formGroupThree = $("<div>")
+        formGroupThree.addClass("form-group mx-auto")
+        //appedning properties buttton
+        var propertyBtn =$(`<button type="submit"><i class="fas fa-arrow-up"></i></button>`)
+        propertyBtn.addClass("updateProperty btn btn-primary float-right")
+        propertyBtn.attr("playerId",playerId)
+        //making the third selector to update the player informtion 
+        var selectTwo = $("<select>")
+        selectTwo.addClass("updateMenu form-control");
+        selectTwo.attr("id", "pp"+playerArray[index].id)
+        formGroupThree.append(selectTwo)
+        formGroupThree.append(propertyBtn)
+        form.append(formGroupThree)
         //appending to file
-        chart.append(div);
-        token.append(tokenDiv);
-        money.append(divTwo);
-        place.append(divThree);
+        playerInfo.append(playerColumn);
+        playerColumn.append(name);
+        playerColumn.append(tokenDiv);
+        formTotakePlayerInfo.append(divTwo);
+        formTotakePlayerInfo.append(divThree);
+        formTotakePlayerInfo.append(playerInfoBtn)
+        colToTakePlayerInfo.append(formTotakePlayerInfo)
+        rowTotakePlayerInfo.append(colToTakePlayerInfo);
+        playerColumn.append(rowTotakePlayerInfo)
+        //form.append(divFour)
+        playerColumn.append(form);
         //setting up another ajax call to get the player property card
         $.ajax({
             type: "GET",
             url: `/api/playerProperties/+${playerId}`
         }).then(function (result) {
-            savCol = $("<col>");
-            savCol.css("padding-left", "6px");
+            savCol = $("<div>").addClass("col");
+            // savCol.css("padding-left", "6px");
             var xIcon;
             var plusIcon;
             var lessIcon;
@@ -292,6 +338,7 @@ function renderPlayerData(playerArray, numPlayers, index) {
                 houseDiv.addClass("holder");
                 houseDiv.attr("id",result[i].id );
                 cardBody.append(houseDiv)
+                renderHouses(houseDiv,result[i].id);
                 //creates the add button for the houses
                 var houseAddBtn = $("<button type='button'>");
                 houseAddBtn.addClass("addHouse");
@@ -316,11 +363,52 @@ function renderPlayerData(playerArray, numPlayers, index) {
                 cardDiv.append(cardHeaderDiv);
                 cardDiv.append(cardBody);
                 savCol.append(cardDiv);
-                street.append(savCol);
+                var propertyRow = $("<div>").addClass("row");
+                propertyRow.append(savCol);
+                playerColumn.append(propertyRow);
             }
             renderPlayerData(playerArray, numPlayers, index + 1);
+            $.ajax({
+                type:"GET",
+                url:"/api/properties"
+            }).then(function(result){
+                //$(".positionMenu").append(`<a class="dropdown-item" data-position="01">Go</a>`)
+                //$(".positionMenu").append(`<a class="dropdown-item" data-position="00">Jail</a>`)
+                //this should populate the dropdown menu with the properties and positons
+                $(".updateMenu").empty()
+                $(".positonUpdate").empty()
+                for(var i = 0 ; i < result.length;i++){
+                    $(".positonUpdate").append(`<option value=${result[i].id}>${result[i].name}</option>`)
+                    $(".updateMenu").append(`<option class="dropdown-item" value=${result[i].id}>${result[i].name}</option>`)
+                    if(i === 27){
+                    var selecter = $("<option selected>").text("Add Properties");
+                     $(".updateMenu").prepend(selecter)
+                    }
+                }
+            })
         });
     }
+}
+
+function renderHouses(div, propertyId){
+    $.ajax({
+        type:"GET",
+        url:`/api/playerProperties/property/${propertyId}`
+    }).then(function(res){
+        console.log(res)
+        //if hotel is true render one hotel
+        if(res[0].Hotel === true){
+            var hotelIcon = $("<i>");
+            hotelIcon.addClass("fas fa-hotel")
+            div.append(hotelIcon) 
+        }else{
+           for(var i = 0; i < res[0].numHouses;i++){
+            var houseIcon = $("<i>");
+            houseIcon.addClass("fas fa-home");
+            div.append(houseIcon);
+           }
+        }
+    });
 }
 
 function renderTokenOptions(playerData){
@@ -365,6 +453,5 @@ function renderTokenOptions(playerData){
         }
         tokenSelect.append(tokenOption);
     }
-
 
 }
