@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-.navbar{
-    background-color: #ccffdd
-    !important;
-}
-.header{
-    background-color:#ff1a1a
-    !important;
-    color:white
-    !important;
-    padding: 5px;
-    border-style: solid;
-    border: 4px black;
-=======
 html{
     height: 100%;
 
@@ -191,5 +177,4 @@ p {
 
 .fa-home{
     color: #008000;
->>>>>>> merge
 }
