@@ -1,0 +1,165 @@
+@import url(//db.onlinewebfonts.com/c/6356df0274319f46ec36ceda656aca6d?family=Kabel);
+
+@font-face {font-family: "Kabel"; src: url("//db.onlinewebfonts.com/t/6356df0274319f46ec36ceda656aca6d.eot"); src: url("//db.onlinewebfonts.com/t/6356df0274319f46ec36ceda656aca6d.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/6356df0274319f46ec36ceda656aca6d.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/6356df0274319f46ec36ceda656aca6d.woff") format("woff"), url("//db.onlinewebfonts.com/t/6356df0274319f46ec36ceda656aca6d.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/6356df0274319f46ec36ceda656aca6d.svg#Kabel") format("svg"); }
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html { 
+    background: url(../img/mono-board.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    background-color: transparent;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+#logo {
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    height: 20%;
+    text-align: center;
+}
+
+#mainLogo {
+    filter: drop-shadow(30px 10px 4px #00BBAA);
+    padding: 0;
+    margin: 0;
+}
+
+#gameNew {
+    border-radius: 20px;
+    text-align: center;
+}
+
+#newBtn {
+    border: solid 2px #FFFFFF;
+    border-radius: 9px;
+    background-color: #eb0000;
+    padding: 10px;
+    margin: 30px 0 30px 0;
+    font-size: 16px;
+    color: #FFFFFF;
+    filter: drop-shadow(4px 4px 4px #00BBAA);
+    font-family: 'Righteous', cursive;
+}
+
+.startBtn{
+    border: solid 2px #FFFFFF;
+    border-radius: 9px;
+    background-color: #eb0000;
+    padding: 10px;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: 'Righteous', cursive;
+}
+
+.deleteBtn{
+    border: solid 2px #FFFFFF;
+    border-radius: 9px;
+    background-color: #eb0000;
+    padding: 10px;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: 'Righteous', cursive;
+}
+
+#gameList {
+    width: 50%;
+    border-radius: 9px;
+    padding: 20px;
+    text-align: center;
+}
+
+.bg-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 500px;
+    height: 100%;
+    background-color: #99FFBB;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+#newGameIMG {
+    width: 40%;
+    margin: 0 auto;
+}
+
+p {
+    margin: 20px auto 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+input {
+    width: 70%;
+    display: inline-block;
+    margin: 15px auto;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px #000000;
+    outline: none;
+}
+
+input:focus {
+    width: 70%;
+    display: inline-block;
+    margin: 15px auto;
+    padding: 5px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+#newGameTitle {
+    width: 82%;
+}
+
+.token {
+    width: 50px;
+    margin-left: 5px;
+}
+
+#createGameBtn {
+    border: solid 2px #FFFFFF;
+    border-radius: 9px;
+    background-color: #eb0000;
+    padding: 10px;
+    margin: 30px auto 30px;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-family: 'Righteous', cursive;
+    display: block;
+    filter: drop-shadow(4px 4px 4px #00BBAA);    
+}
+
+ul {
+    list-style-type: none;
+}
+
+.gameBlock {
+    font-family: "Kabel";
+    border: solid 2px #FFFFFF;
+    padding-bottom: 10px;
+}
