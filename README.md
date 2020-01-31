@@ -29,19 +29,19 @@ Monopoly, the simple finance board game that brings friends and family together 
 
 ## Main Page
 MONOPOLY Tracker can track many games
-![site](/public/img/landing.png)
+![site](public/img/landing.png)
 
 ## Add Game
 Each game allows up to eight players
-![site](/public/img/player.png)
+![site](public/img/player.png)
 
 ## Add Property
 When the save page loads players can add the properties they own for that game
-![site](/public/img/properties.png)
+![site](public/img/properties.png)
 
 ## ADD house and hotel
 Players can add houses and hotel to their property
-![site](/public/img/house.png)
+![site](public/img/house.png)
 
 
  
